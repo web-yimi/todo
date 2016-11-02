@@ -10,7 +10,8 @@ $(document).ready(function(){
 		$(this).addClass('rotate');
 	})
 	$('.setting').on('touchend',function(){
-		alert(1)
+		$('.bottom').show();
+		$('.zhao').show()
 	})
 	if(localStorage.todo){
 		todos=JSON.parse(localStorage.todo)
@@ -63,7 +64,7 @@ $(document).ready(function(){
 		todos.splice(m,1)
 		localStorage.todo=JSON.stringify(todos);
 	})
-	var divs=$('.footer div');
+	var divs=$('.footer .anu');
 	divs.each(function(index){
 		$(this).on('touchend',function(){
 			var role=$(this).attr('data-role');
@@ -75,6 +76,8 @@ $(document).ready(function(){
 			}else if(role=='unfinish'){
 				ul.find('li.done').hide();
 			}
+			$('.bottom').hide();
+			$('.zhao').hide();
 		})
 	})
 })
