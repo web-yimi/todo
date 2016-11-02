@@ -1,0 +1,203 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    list-style:none;
+}
+$device-list:320px,360px,375px,412px,414px;
+$device-width:320px;
+html{
+    font-size:100px;
+    background:url(../img/1.png);
+}
+body{
+    font-size:16px;
+    position:relative;
+}
+@mixin top-bottom{
+    position:absolute;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+@mixin left-right{
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+}
+.start{
+    display:block;
+    width:100%;
+    height:5.69rem;
+    background:url(../img/22.png);
+    background-size:100% auto;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:200;
+}
+.rotate{
+    animation:rotate 2s forwards;
+}
+@keyframes rotate{
+    from{
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    50%{
+        transform:rotate(0deg);
+        opacity:1;
+    }
+    to{
+        transform:scale(0);
+        opacity:0;
+    }
+}
+.header{
+    width:100%;
+    position:relative;
+    border-bottom:1px solid #fff;
+    .bg{
+        width:100%;
+        height:0.8rem;
+        background:url(../img/20.png);
+        background-size:100% auto;
+    }
+    
+    input{
+        width:2.76rem;
+        height:0.35rem;
+        background:transparent;
+        @include left-right;
+        top:0.95rem;
+        border-radius:0.05rem;
+        outline:none;
+        border:2px solid #DEDEDC;
+        text-align: center;
+        line-height:0.35rem; 
+        z-index:100;
+    }
+    span{
+        color:#6C6C6C;
+        font-size:0.2rem;
+        position:absolute;
+        left:0.9rem;
+        top:1rem;
+        z-index:80;
+        font-family:"microsoft yahei";
+        display:block;
+    }
+    .add{
+        width:0.3rem;
+        height:0.3rem;
+        color:#6C6C6C;
+        font-size:0.2rem;
+        font-weight:bold;
+        text-align:center;
+        line-height:0.3rem;
+        position:absolute;
+        left:0.5rem;
+        top:0.98rem;
+        z-index:100;
+    }
+}
+ul{
+    width:100%;
+    @include left-right;
+    padding-bottom:0.2rem;
+    top:1.45rem;
+    li{
+        width:90%;
+        margin:0 auto;
+        background-size:100% auto;
+        position:relative;
+        border-radius:0.05rem;
+        overflow:hidden;
+        .pic{
+            box-sizing:border-box;
+            width:0.51rem;
+            height:0.44rem;
+            border-bottom:0.015rem solid #D5D8D1;
+            border-right:0.015rem solid #D5D8D1;
+            float:left;
+            background:url(../img/19.png) no-repeat;
+            background-position:-0.6rem 0.1rem;
+        }
+        .con{
+            width:2.35rem;
+            height:0.44rem;
+            float:left;
+            border-bottom:0.015rem solid #D5D8D1;
+            color:#838381;
+            font-size:0.2rem;
+            font-family:'helvetica';
+            line-height:0.44rem;
+            padding-left:0.1rem;
+        }
+        .del{
+            width:0.2rem;
+            height:0.2rem;
+            color:red;
+            border-radius:50%;
+            text-align:center;
+            line-height:0.2rem;
+            transform:rotate(45deg);
+            position:absolute;
+            left:0.08rem;
+            top:0.11rem;
+            font-size:0.2rem;
+            font-weight:bold;
+            display:none;
+        }
+    }
+    li.done{
+        background:linear-gradient(30deg,#FFFFCD,#CAFFFD,#BCBCED);
+        text-decoration:line-through;
+        .del{
+            display:block;
+        }
+    }
+}
+.footer{
+    width:100%;
+    height:0.45rem;
+    position:fixed;
+    bottom:0;
+    left:0;
+    .footer-bg{
+        width:100%;
+        height:0.5rem;
+        background:url(../img/21.png);
+        background-size:100% auto;
+    }
+    .setting{
+        width:0.25rem;
+        height:0.25rem;
+        position:absolute;
+        right:0.07rem;
+        top:0.1rem;
+        z-index:120;
+    }
+    .all{
+        width:33.3%;
+        height:100%;
+        background:deepskyblue;
+        float:left;
+        border:2px solid #fff;
+        font-size:0.25rem;
+        color:#fff;
+        text-align:center;
+        line-height:0.5rem;
+    }
+    .active{
+        background:salmon;
+    }
+}
+@each $w in $device-list{
+    @media screen and (min-width:#{$w}){
+        html{
+            font-size:100px*$w/$device-width;
+        }
+    }
+}
